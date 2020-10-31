@@ -1,0 +1,11 @@
+version: '3'
+services:
+  spark:
+    image: jupyter/pyspark-notebook
+    ports:
+      - "8888:8888"
+      - "4040-4080:4040-4080"
+    environment:
+      - PYSPARK_SUBMIT_ARGS=--packages com.databricks:spark-avro_2.10:2.0.1 pyspark-shell
+    volumes:
+      - ./notebooks:/home/jovyan/work/notebooks/
